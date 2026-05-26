@@ -3,177 +3,399 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tejeswara Reddy Dudyala - RTL Design Engineer</title>
+    <meta name="description" content="Tejeswara Reddy Dudyala - Digital RTL Design Engineer with 2 yrs 7 mo experience at AMD (via ACL Digital). Verilog / VHDL / SystemVerilog / UVM, DVB-S2/S2X, in-memory computing, RISC-V, AI-driven verification automation.">
+    <meta name="author" content="Tejeswara Reddy Dudyala">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>Tejeswara Reddy Dudyala — Digital RTL Design Engineer</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-deep: #050617;
+            --bg-mid: #08091e;
+            --bg-elev: #0c0e26;
+            --accent-1: #00f2fe;        /* cyan */
+            --accent-2: #4facfe;        /* electric blue */
+            --accent-3: #a78bfa;        /* purple */
+            --accent-pink: #ff4d8d;     /* hot pink */
+            --accent-lime: #6ee7b7;     /* mint */
+            --accent-warm: #ffb86b;     /* amber */
+            --text: #f0f1fa;
+            --muted: #9ba0b8;
+            --soft: #d0d4e6;
+            --card: rgba(22, 27, 54, 0.78);
+            --card-hi: rgba(34, 41, 78, 0.92);
+            --card-solid: #161b36;
+            --border: rgba(140, 160, 220, 0.16);
+            --border-hi: rgba(0, 242, 254, 0.55);
+            --font-display: 'Space Grotesk', 'Segoe UI', Tahoma, sans-serif;
+            --font-body: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
         }
-
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            color: #fff;
+            font-family: var(--font-body);
+            background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 50%, var(--bg-elev) 100%);
+            color: var(--text);
             overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
+        /* Aurora gradient blobs — animated, page-wide */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: -10%;
+            pointer-events: none;
+            z-index: 0;
+            background:
+                radial-gradient(700px 700px at 18% 22%, rgba(255, 77, 141, 0.22), transparent 60%),
+                radial-gradient(800px 800px at 82% 28%, rgba(0, 242, 254, 0.22), transparent 60%),
+                radial-gradient(600px 600px at 50% 80%, rgba(110, 231, 183, 0.16), transparent 60%),
+                radial-gradient(500px 500px at 10% 92%, rgba(167, 139, 250, 0.20), transparent 60%);
+            animation: aurora 22s ease-in-out infinite alternate;
+            filter: blur(8px);
+        }
+
+        /* PCB-trace overlay (very subtle, mostly at the edges) */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.08;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none'><g stroke='%2300f2fe' stroke-width='1' stroke-opacity='0.5'><path d='M0 40 L70 40 L70 100 L150 100 L150 200'/><path d='M40 0 L40 130 L200 130'/><path d='M0 170 L30 170 L30 20 L100 20'/><path d='M120 0 L120 60 L200 60'/><path d='M180 200 L180 150 L100 150'/></g><g fill='%2300f2fe' fill-opacity='0.75'><circle cx='70' cy='40' r='2.5'/><circle cx='70' cy='100' r='2.5'/><circle cx='150' cy='100' r='2.5'/><circle cx='40' cy='130' r='2.5'/><circle cx='30' cy='170' r='2.5'/><circle cx='30' cy='20' r='2.5'/><circle cx='100' cy='20' r='2.5'/><circle cx='120' cy='60' r='2.5'/><circle cx='180' cy='150' r='2.5'/><circle cx='100' cy='150' r='2.5'/></g></svg>");
+            background-size: 240px 240px;
+            -webkit-mask-image: radial-gradient(ellipse at center, transparent 0%, black 90%);
+                    mask-image: radial-gradient(ellipse at center, transparent 0%, black 90%);
+        }
+
+        @keyframes aurora {
+            0%   { transform: translate(0, 0) scale(1) rotate(0deg); }
+            33%  { transform: translate(-3%, 4%) scale(1.05) rotate(2deg); }
+            66%  { transform: translate(4%, -3%) scale(1.03) rotate(-2deg); }
+            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50%      { background-position: 100% 50%; }
+        }
+        @keyframes floatY {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-8px); }
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 4px 12px rgba(255, 77, 141, 0.3); }
+            50%      { box-shadow: 0 4px 18px rgba(255, 77, 141, 0.6), 0 0 28px rgba(255, 77, 141, 0.35); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Scroll-progress bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0; left: 0;
+            height: 3px;
+            width: 0;
+            background: linear-gradient(90deg, var(--accent-pink), var(--accent-1), var(--accent-lime), var(--accent-warm));
+            background-size: 200% 100%;
+            z-index: 2000;
+            box-shadow: 0 0 14px rgba(0, 242, 254, 0.7);
+            animation: gradientShift 5s ease-in-out infinite;
+        }
+
+        /* Navbar */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(15, 12, 41, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(5, 6, 23, 0.7);
+            backdrop-filter: blur(16px) saturate(140%);
+            -webkit-backdrop-filter: blur(16px) saturate(140%);
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid var(--border);
         }
-
         .logo {
+            font-family: var(--font-display);
             font-size: 1.5rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-pink), var(--accent-lime), var(--accent-1));
+            background-size: 300% 100%;
             -webkit-background-clip: text;
+                    background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: gradientShift 6s ease-in-out infinite;
         }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
+        .nav-links { display: flex; gap: 1.8rem; list-style: none; }
         .nav-links a {
-            color: #fff;
+            color: var(--text);
             text-decoration: none;
-            transition: all 0.3s;
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: color 0.3s;
             position: relative;
         }
-
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -6px;
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-pink));
             transition: width 0.3s;
         }
+        .nav-links a:hover { color: var(--accent-1); }
+        .nav-links a:hover::after,
+        .nav-links a:focus-visible::after { width: 100%; }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
+        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 5%;
+            padding: 7rem 5% 4rem;
             position: relative;
+            z-index: 1;
         }
-
+        /* Decorative chip behind hero only */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(80vh, 720px);
+            height: min(80vh, 720px);
+            pointer-events: none;
+            opacity: 0.18;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600' fill='none'><g fill='%234facfe'><rect x='175' y='100' width='10' height='32' rx='2'/><rect x='205' y='100' width='10' height='32' rx='2'/><rect x='235' y='100' width='10' height='32' rx='2'/><rect x='265' y='100' width='10' height='32' rx='2'/><rect x='295' y='100' width='10' height='32' rx='2'/><rect x='325' y='100' width='10' height='32' rx='2'/><rect x='355' y='100' width='10' height='32' rx='2'/><rect x='385' y='100' width='10' height='32' rx='2'/><rect x='175' y='468' width='10' height='32' rx='2'/><rect x='205' y='468' width='10' height='32' rx='2'/><rect x='235' y='468' width='10' height='32' rx='2'/><rect x='265' y='468' width='10' height='32' rx='2'/><rect x='295' y='468' width='10' height='32' rx='2'/><rect x='325' y='468' width='10' height='32' rx='2'/><rect x='355' y='468' width='10' height='32' rx='2'/><rect x='385' y='468' width='10' height='32' rx='2'/><rect x='100' y='175' width='32' height='10' rx='2'/><rect x='100' y='205' width='32' height='10' rx='2'/><rect x='100' y='235' width='32' height='10' rx='2'/><rect x='100' y='265' width='32' height='10' rx='2'/><rect x='100' y='295' width='32' height='10' rx='2'/><rect x='100' y='325' width='32' height='10' rx='2'/><rect x='100' y='355' width='32' height='10' rx='2'/><rect x='100' y='385' width='32' height='10' rx='2'/><rect x='468' y='175' width='32' height='10' rx='2'/><rect x='468' y='205' width='32' height='10' rx='2'/><rect x='468' y='235' width='32' height='10' rx='2'/><rect x='468' y='265' width='32' height='10' rx='2'/><rect x='468' y='295' width='32' height='10' rx='2'/><rect x='468' y='325' width='32' height='10' rx='2'/><rect x='468' y='355' width='32' height='10' rx='2'/><rect x='468' y='385' width='32' height='10' rx='2'/></g><rect x='130' y='130' width='340' height='340' rx='18' fill='%23161b36' fill-opacity='0.5' stroke='%2300f2fe' stroke-width='2.5'/><circle cx='160' cy='160' r='6' fill='%23ff4d8d'/><rect x='200' y='200' width='200' height='200' rx='4' stroke='%23a78bfa' stroke-width='1.2' stroke-dasharray='5 4'/><g stroke='%234facfe' stroke-width='0.6' stroke-opacity='0.5'><line x1='200' y1='240' x2='400' y2='240'/><line x1='200' y1='280' x2='400' y2='280'/><line x1='200' y1='320' x2='400' y2='320'/><line x1='200' y1='360' x2='400' y2='360'/><line x1='240' y1='200' x2='240' y2='400'/><line x1='280' y1='200' x2='280' y2='400'/><line x1='320' y1='200' x2='320' y2='400'/><line x1='360' y1='200' x2='360' y2='400'/></g><g stroke='%2300f2fe' stroke-width='0.8' stroke-opacity='0.7'><line x1='150' y1='150' x2='200' y2='200'/><line x1='450' y1='150' x2='400' y2='200'/><line x1='150' y1='450' x2='200' y2='400'/><line x1='450' y1='450' x2='400' y2='400'/></g><text x='300' y='292' text-anchor='middle' font-family='Consolas, monospace' font-size='34' font-weight='700' fill='%2300f2fe'>TR</text><text x='300' y='322' text-anchor='middle' font-family='Consolas, monospace' font-size='12' fill='%234facfe' letter-spacing='3'>RTL ENGINE</text><text x='300' y='348' text-anchor='middle' font-family='Consolas, monospace' font-size='9' fill='%23a78bfa' letter-spacing='3'>v2026</text></svg>");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+                    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+        }
         .hero-content {
-            max-width: 800px;
+            max-width: 920px;
             text-align: center;
             animation: fadeInUp 1s ease;
+            position: relative;
+            z-index: 2;
         }
-
+        .hero .eyebrow {
+            display: inline-block;
+            padding: 0.45rem 1.1rem;
+            border: 1px solid rgba(255, 77, 141, 0.4);
+            border-radius: 999px;
+            background: rgba(255, 77, 141, 0.08);
+            color: var(--accent-pink);
+            font-size: 0.72rem;
+            letter-spacing: 2.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1.4rem;
+            font-family: var(--font-mono);
+        }
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            line-height: 1.05;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.9rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 30%, var(--accent-pink) 60%, var(--accent-3) 100%);
+            background-size: 220% 220%;
             -webkit-background-clip: text;
+                    background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: gradientShift 8s ease-in-out infinite;
         }
-
         .hero h2 {
-            font-size: 1.8rem;
-            color: #b8b8d1;
-            margin-bottom: 1.5rem;
+            font-family: var(--font-display);
+            font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+            color: var(--soft);
+            margin-bottom: 1.3rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
-
         .hero p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #9999b3;
-            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: var(--muted);
+            margin: 0 auto 2rem;
+            max-width: 760px;
         }
+        .hero .highlight       { color: var(--accent-1); font-weight: 600; }
+        .hero .highlight.pink  { color: var(--accent-pink); }
+        .hero .highlight.lime  { color: var(--accent-lime); }
+        .hero .highlight.warm  { color: var(--accent-warm); }
 
+        /* CTAs */
         .cta-buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
+            margin-bottom: 2.5rem;
         }
-
         .btn {
-            padding: 1rem 2rem;
+            padding: 0.92rem 1.85rem;
             border: none;
             border-radius: 50px;
-            font-size: 1rem;
+            font-size: 0.92rem;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-family: var(--font-body);
         }
-
         .btn-primary {
-            background: linear-gradient(45deg, #00f2fe, #4facfe);
-            color: #0f0c29;
-            font-weight: bold;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2) 50%, var(--accent-pink));
+            background-size: 200% 200%;
+            color: #06081a;
+            box-shadow: 0 8px 24px rgba(0, 242, 254, 0.28);
         }
-
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.4);
+            box-shadow: 0 14px 36px rgba(255, 77, 141, 0.45);
+            background-position: 100% 50%;
+        }
+        .btn-secondary { background: transparent; color: #fff; border: 2px solid var(--accent-2); }
+        .btn-secondary:hover { background: rgba(79, 172, 254, 0.12); transform: translateY(-3px); border-color: var(--accent-1); box-shadow: 0 10px 26px rgba(0, 242, 254, 0.18); }
+        .btn-ghost { background: rgba(255, 255, 255, 0.04); color: #fff; border: 1px solid var(--border); }
+        .btn-ghost:hover { background: rgba(255, 255, 255, 0.10); transform: translateY(-3px); border-color: var(--accent-lime); box-shadow: 0 10px 26px rgba(110, 231, 183, 0.18); }
+
+        /* Stats */
+        .stats-strip {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.6rem;
+        }
+        .stat {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 0.9rem 1.3rem;
+            border-radius: 16px;
+            min-width: 140px;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            animation: floatY 6s ease-in-out infinite;
+        }
+        .stat:nth-child(2) { animation-delay: 0.8s; }
+        .stat:nth-child(3) { animation-delay: 1.6s; }
+        .stat:nth-child(4) { animation-delay: 2.4s; }
+        .stat .num {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-pink));
+            -webkit-background-clip: text;
+                    background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .stat:nth-child(2) .num { background: linear-gradient(135deg, var(--accent-lime), var(--accent-1));   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat:nth-child(3) .num { background: linear-gradient(135deg, var(--accent-warm), var(--accent-pink)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat:nth-child(4) .num { background: linear-gradient(135deg, var(--accent-3), var(--accent-2));      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat .label {
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-family: var(--font-mono);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: #fff;
-            border: 2px solid #4facfe;
+        /* Tech pills */
+        .tech-pills { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-top: 0.5rem; }
+        .tech-pills span {
+            padding: 0.4rem 0.95rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            color: var(--soft);
+            font-size: 0.76rem;
+            font-family: var(--font-mono);
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: default;
+        }
+        .tech-pills span:hover {
+            background: rgba(0, 242, 254, 0.14);
+            border-color: var(--accent-1);
+            color: var(--accent-1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 242, 254, 0.28);
         }
 
-        .btn-secondary:hover {
-            background: rgba(79, 172, 254, 0.1);
-            transform: translateY(-3px);
-        }
-
+        /* Sections */
         section {
-            padding: 5rem 5%;
+            padding: 6rem 5%;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
-
+        .section-eyebrow {
+            text-align: center;
+            color: var(--accent-pink);
+            font-size: 0.74rem;
+            letter-spacing: 3.5px;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+            font-family: var(--font-mono);
+        }
         .section-title {
-            font-size: 2.5rem;
+            font-family: var(--font-display);
+            font-size: clamp(1.9rem, 4vw, 2.6rem);
             margin-bottom: 3rem;
             text-align: center;
             position: relative;
-            padding-bottom: 1rem;
+            padding-bottom: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-2) 50%, var(--accent-pink) 100%);
+            background-size: 220% 220%;
+            -webkit-background-clip: text;
+                    background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 10s ease-in-out infinite;
         }
-
         .section-title::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
+            width: 80px;
             height: 3px;
-            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-pink));
+            border-radius: 2px;
         }
 
-        .experience-timeline {
-            position: relative;
-            padding-left: 50px;
-        }
-
+        /* Experience timeline */
+        .experience-timeline { position: relative; padding-left: 50px; }
         .experience-timeline::before {
             content: '';
             position: absolute;
@@ -181,269 +403,492 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(180deg, #00f2fe, #4facfe);
+            background: linear-gradient(180deg, var(--accent-1), var(--accent-pink), var(--accent-3), transparent);
         }
-
         .experience-item {
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             position: relative;
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--card);
             padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s;
+            border-radius: 18px;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--border);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+            transition: all 0.35s ease;
+            overflow: hidden;
         }
-
+        .experience-item::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-pink), transparent);
+        }
         .experience-item:hover {
-            transform: translateX(10px);
-            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(12px);
+            background: var(--card-hi);
+            border-color: var(--border-hi);
+            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.55), 0 0 32px rgba(0, 242, 254, 0.14);
         }
-
         .experience-item::before {
             content: '';
             position: absolute;
             left: -38px;
-            top: 30px;
-            width: 16px;
-            height: 16px;
+            top: 32px;
+            width: 18px;
+            height: 18px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #00f2fe, #4facfe);
-            border: 3px solid #0f0c29;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-pink));
+            border: 3px solid var(--bg-deep);
+            box-shadow: 0 0 0 4px rgba(0, 242, 254, 0.18), 0 0 18px rgba(255, 77, 141, 0.4);
         }
-
         .experience-item h3 {
-            color: #4facfe;
-            margin-bottom: 0.5rem;
+            font-family: var(--font-display);
+            color: var(--accent-1);
+            margin-bottom: 0.3rem;
+            font-size: 1.3rem;
+            font-weight: 700;
         }
-
+        .experience-item .company { color: #fff; font-weight: 600; margin-bottom: 0.2rem; font-size: 1.02rem; }
         .experience-item .duration {
-            color: #9999b3;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-bottom: 1.1rem;
+            font-family: var(--font-mono);
         }
-
-        .experience-item ul {
-            list-style: none;
-            padding-left: 0;
+        .experience-item .badge {
+            display: inline-block;
+            padding: 0.22rem 0.7rem;
+            border-radius: 6px;
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-warm));
+            color: #fff;
+            font-size: 0.66rem;
+            font-weight: 700;
+            margin-left: 0.5rem;
+            letter-spacing: 1px;
+            vertical-align: middle;
+            font-family: var(--font-mono);
+            animation: pulse 2.5s ease-in-out infinite;
         }
-
+        .experience-item ul { list-style: none; padding-left: 0; }
         .experience-item li {
-            padding-left: 1.5rem;
-            margin-bottom: 0.8rem;
+            padding-left: 1.6rem;
+            margin-bottom: 0.75rem;
             position: relative;
-            color: #b8b8d1;
+            color: var(--soft);
+            line-height: 1.6;
         }
-
         .experience-item li::before {
             content: '▹';
             position: absolute;
             left: 0;
-            color: #4facfe;
+            color: var(--accent-1);
+            font-weight: 700;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
+        /* Skills */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
         .skill-category {
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--card);
             padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s;
+            border-radius: 18px;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
         }
-
+        .skill-category::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-2), var(--accent-1));
+        }
+        .skill-category:nth-child(2)::after { background: linear-gradient(90deg, var(--accent-pink), var(--accent-warm)); }
+        .skill-category:nth-child(3)::after { background: linear-gradient(90deg, var(--accent-lime), var(--accent-1)); }
+        .skill-category:nth-child(4)::after { background: linear-gradient(90deg, var(--accent-3), var(--accent-2)); }
+        .skill-category:nth-child(5)::after { background: linear-gradient(90deg, var(--accent-warm), var(--accent-lime)); }
         .skill-category:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 15px 40px rgba(79, 172, 254, 0.2);
+            transform: translateY(-8px);
+            background: var(--card-hi);
+            border-color: var(--border-hi);
+            box-shadow: 0 22px 48px rgba(0, 0, 0, 0.55), 0 0 36px rgba(0, 242, 254, 0.15);
         }
-
         .skill-category h3 {
-            color: #4facfe;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+            font-family: var(--font-display);
+            color: var(--accent-1);
+            margin-bottom: 0.9rem;
+            font-size: 1.18rem;
+            font-weight: 700;
         }
-
-        .skill-category p {
-            color: #b8b8d1;
-            line-height: 1.6;
+        .skill-category:nth-child(2) h3 { color: var(--accent-pink); }
+        .skill-category:nth-child(3) h3 { color: var(--accent-lime); }
+        .skill-category:nth-child(4) h3 { color: var(--accent-3); }
+        .skill-category:nth-child(5) h3 { color: var(--accent-warm); }
+        .skill-category p { color: var(--soft); line-height: 1.7; font-size: 0.93rem; }
+        .skill-category strong { color: #fff; }
+        .skill-category.featured {
+            border: 1px solid rgba(255, 184, 107, 0.5);
+            background:
+                linear-gradient(135deg, rgba(255, 184, 107, 0.12), rgba(255, 77, 141, 0.10)),
+                var(--card-solid);
+            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 184, 107, 0.16);
         }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+        .skill-category.featured::after {
+            background: linear-gradient(90deg, var(--accent-warm), var(--accent-pink), var(--accent-3));
+            height: 4px;
         }
+        .skill-category.featured h3 { color: var(--accent-warm); }
+        .skill-category.featured::before {
+            content: '★ DIFFERENTIATOR';
+            position: absolute;
+            top: 0.9rem;
+            right: 0.9rem;
+            font-size: 0.58rem;
+            letter-spacing: 2px;
+            color: var(--accent-warm);
+            font-weight: 700;
+            font-family: var(--font-mono);
+        }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
+        .skill-tags span {
+            padding: 0.28rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(0, 242, 254, 0.08);
+            border: 1px solid rgba(0, 242, 254, 0.25);
+            color: var(--accent-1);
+            font-size: 0.74rem;
+            font-family: var(--font-mono);
+            font-weight: 500;
+            transition: all 0.25s;
+        }
+        .skill-tags span:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 242, 254, 0.25); }
+        .skill-category:nth-child(2) .skill-tags span { color: var(--accent-pink); border-color: rgba(255, 77, 141, 0.30); background: rgba(255, 77, 141, 0.06); }
+        .skill-category:nth-child(3) .skill-tags span { color: var(--accent-lime); border-color: rgba(110, 231, 183, 0.30); background: rgba(110, 231, 183, 0.06); }
+        .skill-category:nth-child(4) .skill-tags span { color: var(--accent-3);    border-color: rgba(167, 139, 250, 0.30); background: rgba(167, 139, 250, 0.06); }
+        .skill-category.featured  .skill-tags span    { color: var(--accent-warm); border-color: rgba(255, 184, 107, 0.35); background: rgba(255, 184, 107, 0.08); }
 
+        /* Projects */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.6rem; }
         .project-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--card);
             padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s;
+            border-radius: 18px;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--border);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+            transition: all 0.35s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
         }
-
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+        }
+        /* Five-color rotation across the grid */
+        .project-card:nth-child(5n+1)::after { background: linear-gradient(90deg, var(--accent-1),    var(--accent-2)); }
+        .project-card:nth-child(5n+2)::after { background: linear-gradient(90deg, var(--accent-pink), var(--accent-3)); }
+        .project-card:nth-child(5n+3)::after { background: linear-gradient(90deg, var(--accent-lime), var(--accent-1)); }
+        .project-card:nth-child(5n+4)::after { background: linear-gradient(90deg, var(--accent-warm), var(--accent-pink)); }
+        .project-card:nth-child(5n+5)::after { background: linear-gradient(90deg, var(--accent-3),    var(--accent-2)); }
+        .project-card:nth-child(5n+1) h3      { color: var(--accent-1); }
+        .project-card:nth-child(5n+2) h3      { color: var(--accent-pink); }
+        .project-card:nth-child(5n+3) h3      { color: var(--accent-lime); }
+        .project-card:nth-child(5n+4) h3      { color: var(--accent-warm); }
+        .project-card:nth-child(5n+5) h3      { color: var(--accent-3); }
+        .project-card:nth-child(5n+1) .ribbon { background: rgba(0, 242, 254, 0.14);  color: var(--accent-1); }
+        .project-card:nth-child(5n+2) .ribbon { background: rgba(255, 77, 141, 0.14); color: var(--accent-pink); }
+        .project-card:nth-child(5n+3) .ribbon { background: rgba(110, 231, 183, 0.14); color: var(--accent-lime); }
+        .project-card:nth-child(5n+4) .ribbon { background: rgba(255, 184, 107, 0.14); color: var(--accent-warm); }
+        .project-card:nth-child(5n+5) .ribbon { background: rgba(167, 139, 250, 0.14); color: var(--accent-3); }
         .project-card:hover {
             transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 15px 40px rgba(79, 172, 254, 0.2);
+            background: var(--card-hi);
+            box-shadow: 0 24px 52px rgba(0, 0, 0, 0.55), 0 0 36px rgba(0, 242, 254, 0.16);
+            border-color: var(--border-hi);
         }
-
-        .project-card h3 {
-            color: #4facfe;
+        .project-card .ribbon {
+            display: inline-block;
+            align-self: flex-start;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
             margin-bottom: 0.8rem;
-            font-size: 1.4rem;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
         }
-
+        .project-card h3 {
+            font-family: var(--font-display);
+            margin-bottom: 0.45rem;
+            font-size: 1.22rem;
+            line-height: 1.3;
+            font-weight: 700;
+        }
         .project-duration {
-            color: #9999b3;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            color: var(--muted);
+            font-size: 0.82rem;
+            margin-bottom: 1.1rem;
+            font-family: var(--font-mono);
         }
-
-        .project-card ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
+        .project-card ul { list-style: none; padding-left: 0; }
         .project-card li {
             padding-left: 1.5rem;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
             position: relative;
-            color: #b8b8d1;
-            font-size: 0.95rem;
+            color: var(--soft);
+            font-size: 0.92rem;
+            line-height: 1.55;
         }
-
         .project-card li::before {
             content: '▹';
             position: absolute;
             left: 0;
-            color: #4facfe;
+            color: var(--accent-2);
+            font-weight: 700;
+        }
+        .project-card code {
+            font-family: var(--font-mono);
+            font-size: 0.85em;
+            padding: 0.05rem 0.3rem;
+            border-radius: 4px;
+            background: rgba(255, 77, 141, 0.10);
+            color: var(--accent-pink);
+        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-top: 1.2rem;
+            padding-top: 1.1rem;
+            border-top: 1px dashed var(--border);
+        }
+        .project-tags span {
+            padding: 0.22rem 0.65rem;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            color: var(--soft);
+            font-size: 0.71rem;
+            font-family: var(--font-mono);
+            transition: all 0.25s;
+        }
+        .project-tags span:hover { color: var(--accent-1); border-color: var(--accent-1); }
+
+        /* Academic */
+        .academic-heading {
+            text-align: center;
+            color: var(--accent-lime);
+            font-size: 0.74rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 3rem;
+            margin-bottom: 1.3rem;
+            font-weight: 700;
+            font-family: var(--font-mono);
+        }
+        .academic-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        .academic-card {
+            background: rgba(22, 27, 54, 0.55);
+            padding: 1.3rem 1.5rem;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+        }
+        .academic-card:hover { background: var(--card); transform: translateY(-3px); border-color: rgba(110, 231, 183, 0.4); }
+        .academic-card h4 {
+            font-family: var(--font-display);
+            color: var(--accent-lime);
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+        .academic-card .meta {
+            color: var(--muted);
+            font-size: 0.72rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+            font-family: var(--font-mono);
+        }
+        .academic-card p { color: var(--soft); font-size: 0.86rem; line-height: 1.55; }
+
+        /* Education */
+        .education-section {
+            display: grid;
+            gap: 1.6rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        }
+        .education-card {
+            background: var(--card);
+            padding: 2rem;
+            border-radius: 18px;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--border);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+            transition: all 0.35s;
+            position: relative;
+            overflow: hidden;
+        }
+        .education-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-3), var(--accent-pink));
+        }
+        .education-card:nth-child(2)::after { background: linear-gradient(90deg, var(--accent-lime), var(--accent-warm)); }
+        .education-card:hover { transform: translateY(-6px); background: var(--card-hi); border-color: var(--border-hi); box-shadow: 0 20px 44px rgba(0, 0, 0, 0.55); }
+        .education-card h3 {
+            font-family: var(--font-display);
+            color: var(--accent-3);
+            margin-bottom: 0.4rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .education-card:nth-child(2) h3 { color: var(--accent-lime); }
+        .education-card .institution { color: #fff; margin-bottom: 0.4rem; font-size: 1.02rem; font-weight: 500; }
+        .education-card .details {
+            color: var(--muted);
+            font-size: 0.88rem;
+            line-height: 1.65;
+            font-family: var(--font-mono);
+        }
+        .education-card .cgpa {
+            display: inline-block;
+            margin-top: 0.8rem;
+            padding: 0.32rem 0.85rem;
+            border-radius: 6px;
+            background: linear-gradient(135deg, rgba(110, 231, 183, 0.18), rgba(255, 184, 107, 0.18));
+            border: 1px solid rgba(110, 231, 183, 0.3);
+            color: var(--accent-lime);
+            font-size: 0.78rem;
+            font-weight: 600;
+            font-family: var(--font-mono);
         }
 
+        /* Contact */
         .contact {
             text-align: center;
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--card);
             padding: 4rem 2rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 22px;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--border);
+            box-shadow: 0 16px 42px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
         }
-
+        .contact::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-pink), var(--accent-lime), var(--accent-warm), var(--accent-1));
+            background-size: 220% 100%;
+            animation: gradientShift 6s ease-in-out infinite;
+        }
+        .contact p.lead {
+            color: var(--soft);
+            margin: 0 auto 2rem;
+            max-width: 600px;
+            line-height: 1.7;
+        }
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 3rem;
+            gap: 2.5rem;
             flex-wrap: wrap;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
         }
-
         .contact-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
+            min-width: 140px;
         }
-
-        .contact-item a {
-            color: #4facfe;
+        .contact-item .lbl {
+            color: var(--muted);
+            font-size: 0.72rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            font-weight: 600;
+        }
+        .contact-item a,
+        .contact-item .val {
+            color: var(--accent-1);
             text-decoration: none;
             transition: all 0.3s;
+            font-size: 0.95rem;
+            font-weight: 500;
         }
+        .contact-item a:hover { color: var(--accent-pink); transform: translateY(-1px); }
 
-        .contact-item a:hover {
-            color: #00f2fe;
-            transform: scale(1.1);
-        }
-
-        .education-section {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .education-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s;
-        }
-
-        .education-card:hover {
-            transform: translateX(10px);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .education-card h3 {
-            color: #4facfe;
-            margin-bottom: 0.5rem;
-        }
-
-        .education-card .institution {
-            color: #b8b8d1;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .education-card .details {
-            color: #9999b3;
-            font-size: 0.9rem;
-        }
-
+        /* Footer */
         footer {
             text-align: center;
-            padding: 2rem;
-            color: #9999b3;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem 2rem;
+            color: var(--muted);
+            border-top: 1px solid var(--border);
+            font-size: 0.86rem;
+            position: relative;
+            z-index: 1;
         }
+        footer a { color: var(--accent-1); text-decoration: none; transition: color 0.3s; }
+        footer a:hover { color: var(--accent-pink); }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        /* Scroll-reveal */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero h2 {
-                font-size: 1.5rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
-
+            .hero { padding-top: 6rem; }
+            .nav-links { gap: 0.9rem; font-size: 0.78rem; }
+            .logo { font-size: 1.15rem; }
             .projects-grid,
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
+            .skills-grid,
+            .education-section,
+            .academic-row { grid-template-columns: 1fr; }
+            .contact-info { flex-direction: column; gap: 1.3rem; }
+            .experience-timeline { padding-left: 34px; }
+            .experience-timeline::before { left: 12px; }
+            .experience-item::before { left: -30px; }
+            section { padding: 4rem 5%; }
+            .stat { min-width: 120px; padding: 0.75rem 1rem; }
+            .stat .num { font-size: 1.25rem; }
+            .hero::before { opacity: 0.12; }
+        }
 
-            .contact-info {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
+        /* Reduced-motion respect */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
         }
     </style>
 </head>
 <body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <nav class="navbar">
-        <div class="logo">TR</div>
+        <div class="logo">TR.</div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#experience">Experience</a></li>
@@ -456,228 +901,349 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
+            <span class="eyebrow">Digital RTL Design Engineer</span>
             <h1>Tejeswara Reddy Dudyala</h1>
-            <h2>RTL Design Engineer</h2>
-            <p>Specialized in ASIC RTL Design with 2+ years of experience in DVB-S2/S2X protocols, FSM-based design, and verification. Passionate about creating efficient hardware designs and advancing in VLSI technology.</p>
+            <h2>RTL Design · Verification · AI-Driven Automation</h2>
+            <p>2 yrs 7 mo of silicon design experience — currently building <span class="highlight pink">RTL &amp; AI-powered verification automation at AMD</span> (via ACL Digital). Hands-on with <span class="highlight">DVB-S2 / S2X protocol RTL</span>, <span class="highlight lime">in-memory computing</span>, <span class="highlight warm">RISC-V pipelined cores</span>, and UVM-based functional verification. M.Tech VLSI in progress at BITS Pilani.</p>
             <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                <a href="#projects" class="btn btn-secondary">View Projects</a>
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="resume.pdf" class="btn btn-secondary" download>Download Resume</a>
+                <a href="https://github.com/dtejaswarreddy10" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+            </div>
+            <div class="stats-strip">
+                <div class="stat"><span class="num">2.7+</span><span class="label">Years Experience</span></div>
+                <div class="stat"><span class="num">3</span><span class="label">Companies</span></div>
+                <div class="stat"><span class="num">11+</span><span class="label">RTL Projects</span></div>
+                <div class="stat"><span class="num">9.13</span><span class="label">B.Tech CGPA</span></div>
+            </div>
+            <div class="tech-pills">
+                <span>Verilog</span><span>VHDL</span><span>SystemVerilog</span><span>UVM</span><span>Python</span><span>TCL</span><span>Vivado</span><span>Questa</span><span>VCS</span><span>Xcelium</span>
             </div>
         </div>
     </section>
 
     <section id="experience">
+        <p class="section-eyebrow">Career</p>
         <h2 class="section-title">Professional Experience</h2>
         <div class="experience-timeline">
+
+            <div class="experience-item">
+                <h3>Design Engineer <span class="badge">CURRENT</span></h3>
+                <div class="company">ACL Digital · Client: AMD</div>
+                <div class="duration">Hyderabad · Nov 2025 – Present</div>
+                <ul>
+                    <li>Authoring test plans and writing RTL to verify new feature additions in AMD's silicon design flow.</li>
+                    <li>Developed an AI agent that reviews test plans for completeness, coverage gaps and protocol-level edge cases.</li>
+                    <li>Owner of two regression suites — driving automation of regression-suite maintenance with AI.</li>
+                    <li>Built a regression-automation framework that maps newly authored test suites to actual regression runs, auto-generates execution logs/reports and pushes email notifications for faster validation tracking.</li>
+                </ul>
+            </div>
+
             <div class="experience-item">
                 <h3>RTL Design Engineer</h3>
-                <div class="duration">Krisemi Design Technologies, Bengaluru | Jan 2024 - July 2025 (1 Year 7 Months)</div>
+                <div class="company">Krisemi Design Technologies</div>
+                <div class="duration">Bengaluru · Jan 2024 – July 2025 · 1 yr 7 mo</div>
                 <ul>
-                    <li>Worked on RTL Upgrade of 3 modules from DVB-S2 to DVB-S2X version</li>
-                    <li>Written FSM-based RTL for the modules present in the DVB-S2 protocol</li>
-                    <li>Developed comprehensive understanding of each module in DVB-S2</li>
-                    <li>Verified each module of DVB-S2 & DVB-S2X in Vivado Simulation</li>
+                    <li>Owned the micro-architecture understanding of DVB-S2 / S2X transmitter modules end-to-end.</li>
+                    <li>Upgraded RTL of 3 modules — Frame Length Enforcer, LDPC and PL Framing — from DVB-S2 to DVB-S2X.</li>
+                    <li>Wrote FSM-based RTL for multiple DVB-S2 blocks including a Mode Adaptation module and an 8-bit CRC calculator.</li>
+                    <li>Verified every module of DVB-S2 &amp; DVB-S2X stand-alone and at system level using Vivado simulation.</li>
                 </ul>
             </div>
 
             <div class="experience-item">
                 <h3>Design Verification Trainee</h3>
-                <div class="duration">Moschip Institute of Silicon Systems, Hyderabad | June 2023 - December 2023 (7 Months)</div>
+                <div class="company">Moschip Institute of Silicon Systems</div>
+                <div class="duration">Hyderabad · Jun 2023 – Nov 2023 · 6 mo</div>
                 <ul>
-                    <li>Designed 16-bit ALU and 8-bit Customized up-down counter using Verilog</li>
-                    <li>Performed Verification using SystemVerilog</li>
-                    <li>Worked on Verification of APB based 10/100 ETHERNET and AMBA-3 APB Protocol</li>
-                    <li>Built UVM Verification architecture from scratch to functional coverage and ABV</li>
+                    <li>Designed a 16-bit ALU and an 8-bit customized up/down counter in Verilog; verified each in a SystemVerilog environment.</li>
+                    <li>Built a UVM verification architecture from scratch — base classes through functional coverage and ABV — for APB-based 10/100 Ethernet IP.</li>
+                    <li>Verified AMBA-3 APB protocol (single master / single slave) using SV and UVM, including coverage model and assertions.</li>
                 </ul>
             </div>
+
         </div>
     </section>
 
     <section id="skills">
+        <p class="section-eyebrow">Toolbox</p>
         <h2 class="section-title">Technical Skills</h2>
         <div class="skills-grid">
+
             <div class="skill-category">
-                <h3>Hardware Design</h3>
-                <p><strong>HDL:</strong> Verilog<br>
-                <strong>HDVL:</strong> SystemVerilog<br>
-                <strong>Concepts:</strong> FSM Based Designing, Lint, CDC, Clock Gating, ASIC Flow</p>
+                <h3>HDL &amp; HDVL</h3>
+                <p><strong>Design:</strong> Verilog, VHDL<br><strong>Verification:</strong> SystemVerilog, UVM</p>
+                <div class="skill-tags"><span>Verilog</span><span>VHDL</span><span>SystemVerilog</span><span>UVM</span></div>
+            </div>
+
+            <div class="skill-category">
+                <h3>EDA Tools</h3>
+                <p>Industry-standard simulation, lint and formal flows used day-to-day.</p>
+                <div class="skill-tags"><span>Questasim</span><span>VCS</span><span>Vivado</span><span>Xcelium</span><span>Riviera</span><span>Onespin</span></div>
             </div>
 
             <div class="skill-category">
                 <h3>Protocols</h3>
-                <p><strong>Worked On:</strong> AMBA APB3, 10/100 APB Based ETHERNET, DVB-S2, DVB-S2X<br>
-                <strong>Known:</strong> AXI4, SPI, DMA, FIFO</p>
+                <p><strong>Worked on:</strong> AMBA APB3, APB-Ethernet 10/100, DVB-S2, DVB-S2X, UART<br><strong>Familiar:</strong> AXI4, SPI, DMA, FIFO</p>
             </div>
 
             <div class="skill-category">
-                <h3>Tools & Environment</h3>
-                <p><strong>EDA Tools:</strong> Questasim, Vivado<br>
-                <strong>Scripting:</strong> Python with LLMs<br>
-                <strong>Version Control:</strong> Github<br>
-                <strong>OS:</strong> Linux (Ubuntu 20, 24), Windows</p>
+                <h3>Design Concepts &amp; ASIC Flow</h3>
+                <p>FSM-based RTL, Lint, CDC, Clock Gating, Synthesis, ASIC flow basics, micro-architecture spec authoring.</p>
+                <div class="skill-tags"><span>FSM</span><span>Lint</span><span>CDC</span><span>Clock Gating</span><span>Synthesis</span></div>
             </div>
 
             <div class="skill-category">
-                <h3>Architectures</h3>
-                <p><strong>Known:</strong> Basics of CISC, RISC (MIPS)<br>
-                <strong>Focus:</strong> Digital design optimization and hardware-software interface</p>
+                <h3>Scripting &amp; Version Control</h3>
+                <p><strong>Scripting:</strong> Python, TCL (LLM-assisted)<br><strong>Version Control:</strong> GitHub, Perforce<br><strong>OS:</strong> Linux (Ubuntu 20 / 24), Windows</p>
             </div>
+
+            <div class="skill-category featured">
+                <h3>AI &amp; Automation</h3>
+                <p>Building AI-driven test-plan reviewers and regression-automation frameworks. Comfortable orchestrating multi-agent flows to boost verification productivity.</p>
+                <div class="skill-tags"><span>Claude Code CLI</span><span>Claude Opus</span><span>OpenAI Codex</span><span>DEVStudio</span><span>Agentic Flows</span></div>
+            </div>
+
         </div>
     </section>
 
     <section id="projects">
+        <p class="section-eyebrow">Selected Work</p>
         <h2 class="section-title">Key Projects</h2>
         <div class="projects-grid">
+
             <div class="project-card">
-                <h3>DVB-S2 and S2X IP Development</h3>
-                <div class="project-duration">ODC Project | Jan 2024 - July 2025 (1Y 7M)</div>
+                <span class="ribbon">2026 · FPGA · Edge AI</span>
+                <h3>IMC Tile — INT8 Transformer Attention on Zedboard</h3>
+                <div class="project-duration">Personal Project · 2026</div>
                 <ul>
-                    <li>Designed Mode Adaptation Module using FSM-based design</li>
-                    <li>Designed CRC8 calculator for 8-bit input</li>
-                    <li>Upgraded 3 modules (Frame_length_enforcer, LDPC, PL) from DVB-S2 to DVB-S2X</li>
-                    <li>Module by Module Verification on Vivado</li>
-                    <li>Complete System Verification of DVB-S2 and DVB-S2X</li>
+                    <li>Built a weight-stationary INT8 GEMM tile on Xilinx Zynq-7020 that bit-exactly executes one attention head (output projection) of <code>prajjwal1/bert-tiny</code>.</li>
+                    <li>16 parallel DSP48E1 MACs with INT32 accumulate; BRAM-resident 128-bit weight column per cycle — the in-memory-compute idea.</li>
+                    <li>12-state Moore FSM (LOAD/LATCH split + 4-cycle MAC + 1-cycle requant pipeline) driving every strobe and address; requant via <code>(acc·M)&gt;&gt;&gt;shift</code> with INT8 saturation.</li>
+                    <li>Pure PL design — no PS, no AXI. Vivado VIO for start / soft-reset / readback; Vivado ILA for in-system observability.</li>
+                    <li>Verified <strong>128/128 bytes bit-exact</strong> vs <code>golden_y.hex</code> across Python sim, xsim, and on-board run. End-to-end 1,059 cycles ≈ 10.59 µs @ 100 MHz.</li>
                 </ul>
+                <div class="project-tags"><span>Verilog</span><span>SystemVerilog</span><span>DSP48</span><span>BRAM</span><span>INT8 GEMM</span><span>FSM</span><span>Zedboard</span><span>Vivado</span></div>
             </div>
 
             <div class="project-card">
-                <h3>APB Based ETHERNET Protocol</h3>
-                <div class="project-duration">Internal Project | Oct 2023 - Dec 2023 (3 Months)</div>
+                <span class="ribbon">2025 · Parallel Compute</span>
+                <h3>2×2 Output-Stationary Systolic Array</h3>
+                <div class="project-duration">Sept – Oct 2025 · 1 month</div>
                 <ul>
-                    <li>Analyzed Ethernet architecture and functionality</li>
-                    <li>Prepared comprehensive Verification, Test, Coverage and Assertion plans</li>
-                    <li>Implemented IP level verification using UVM environment</li>
-                    <li>Conducted Code and Functional coverage analysis</li>
-                    <li>Performed assertion-based formal verification</li>
+                    <li>Designed a 2×2 output-stationary systolic array in Verilog for integer matrix multiplication (4-bit operands, 16-bit accumulator).</li>
+                    <li>Built a parameterised <code>multiplication_and_accumulator_unit</code> PE that multiplies <code>a_in × b_in</code>, accumulates the product into a local 16-bit register, and forwards <code>a</code> rightward and <code>b</code> downward each clock — the canonical systolic wavefront.</li>
+                    <li>Instantiated four PEs (MAU11/12/21/22) with edge inputs feeding the top row and left column; results stay stationary at each PE and are concatenated into two 32-bit output rows.</li>
+                    <li>Verified the array in Vivado xsim with a directed testbench (<code>0x00</code>, <code>0x0F</code>, <code>0xFF</code>, <code>0xF0</code> stimulus patterns) and reset-sequence checks.</li>
                 </ul>
+                <div class="project-tags"><span>Verilog</span><span>Systolic Array</span><span>Output-Stationary</span><span>MAC PE</span><span>Vivado xsim</span></div>
             </div>
 
             <div class="project-card">
-                <h3>AMBA 3 APB Protocol</h3>
-                <div class="project-duration">Internal Project | Sept 2023 - Oct 2023 (1 Month)</div>
+                <span class="ribbon">2025 · Computer Architecture</span>
+                <h3>MIPS / RISC-V Processor — Single-Cycle &amp; 5-Stage Pipelined</h3>
+                <div class="project-duration">Sept 2025 – Nov 2025 · 3 months</div>
                 <ul>
-                    <li>Studied APB protocol specifications in detail</li>
-                    <li>Developed Verification, Test, Coverage and Assertion plans</li>
-                    <li>Implemented protocol verification in SV and UVM environments</li>
-                    <li>Created Functional coverage model and Assertions</li>
+                    <li>Designed a 32-bit MIPS / RISC-V core supporting R, I and J-type instruction formats.</li>
+                    <li>Implemented both single-cycle and 5-stage pipelined architectures (IF · ID · EX · MEM · WB).</li>
+                    <li>Added hazard detection and data forwarding logic for correct pipelined execution.</li>
+                    <li>Built ALU, Register File, Control Unit, PC, Branch logic and Memory Interface modules.</li>
+                    <li>Verified processor execution via waveform analysis in ModelSim / QuestaSim.</li>
                 </ul>
+                <div class="project-tags"><span>Verilog</span><span>Pipelining</span><span>Hazards</span><span>Forwarding</span><span>QuestaSim</span></div>
             </div>
 
             <div class="project-card">
-                <h3>UP-DOWN COUNTER & ALU Design</h3>
-                <div class="project-duration">Internal Projects | July 2023 - Sept 2023</div>
+                <span class="ribbon">2025 · Serial Comms</span>
+                <h3>UART TX/RX — With &amp; Without FIFO Support</h3>
+                <div class="project-duration">July 2025 – Aug 2025 · 1 month</div>
                 <ul>
-                    <li>Designed and implemented 8-bit Up-Down Counter</li>
-                    <li>Developed 16-bit ALU design</li>
-                    <li>Verified designs in SystemVerilog environment</li>
-                    <li>Implemented Coverage and Assertions for functional verification</li>
+                    <li>Designed TX and RX modules with configurable baud rate, data bits, parity and stop bits.</li>
+                    <li>Implemented two architectures: direct TX/RX datapath and FIFO-buffered UART for higher throughput / lower CPU load.</li>
+                    <li>Developed a synchronous FIFO using circular-buffer logic to enable buffered serial communication.</li>
+                    <li>Validated end-to-end TX→RX integrity via loopback testing in QuestaSim.</li>
                 </ul>
+                <div class="project-tags"><span>Verilog</span><span>UART</span><span>Sync FIFO</span><span>QuestaSim</span></div>
             </div>
 
             <div class="project-card">
-                <h3>BLDC Motor Control Analysis</h3>
-                <div class="project-duration">Academic Project</div>
+                <span class="ribbon">2025 · Edge AI / SRAM</span>
+                <h3>In-Memory Computing (IMC) SRAM Engine</h3>
+                <div class="project-duration">March 2025 · 1 month</div>
                 <ul>
-                    <li>Analyzed speed control of BLDC motor using different control techniques</li>
-                    <li>Simulation and analysis performed in MATLAB</li>
-                    <li>Comparative study of various control algorithms</li>
+                    <li>Designed a 256×32 dual-port SRAM-based IMC engine in Verilog to accelerate edge AI / ML inference.</li>
+                    <li>Performs bitwise compute directly within memory — addressing the von-Neumann memory-wall bottleneck.</li>
+                    <li>Built self-checking testbenches with directed + randomized stimulus.</li>
+                    <li>Synthesized the design and analyzed resource utilization and throughput.</li>
                 </ul>
+                <div class="project-tags"><span>Verilog</span><span>SRAM</span><span>IMC</span><span>Synthesis</span><span>Edge AI</span></div>
             </div>
 
             <div class="project-card">
-                <h3>Home Automation System</h3>
-                <div class="project-duration">Academic Project</div>
+                <span class="ribbon">2024-25 · Industry IP</span>
+                <h3>DVB-S2 &amp; DVB-S2X IP Development</h3>
+                <div class="project-duration">In-house Project · Jan 2024 – July 2025 · 1 yr 7 mo</div>
                 <ul>
-                    <li>Designed low-cost home automation circuit</li>
-                    <li>Implemented IR remote-based switching control</li>
-                    <li>Used microcontrollers and relays for appliance control</li>
+                    <li>Designed the Mode Adaptation module using an FSM-based approach.</li>
+                    <li>Designed an 8-bit CRC calculator block.</li>
+                    <li>Upgraded 3 modules (Frame Length Enforcer, LDPC, PL) from DVB-S2 to DVB-S2X.</li>
+                    <li>Module-by-module verification on Vivado plus full system-level DVB-S2 / S2X verification.</li>
                 </ul>
+                <div class="project-tags"><span>Verilog</span><span>FSM</span><span>DVB-S2X</span><span>CRC</span><span>Vivado</span></div>
+            </div>
+
+            <div class="project-card">
+                <span class="ribbon">2023 · UVM</span>
+                <h3>APB-based Ethernet Protocol Verification</h3>
+                <div class="project-duration">Internal Project · Oct 2023 – Dec 2023 · 3 months</div>
+                <ul>
+                    <li>Studied Ethernet architecture and functionality at IP level.</li>
+                    <li>Authored Verification, Test, Coverage and Assertion plans.</li>
+                    <li>Built an IP-level UVM environment for the Ethernet IP core and implemented test scenarios.</li>
+                    <li>Performed code + functional coverage analysis and assertion-based formal verification.</li>
+                </ul>
+                <div class="project-tags"><span>UVM</span><span>SystemVerilog</span><span>Ethernet</span><span>Coverage</span><span>ABV</span></div>
+            </div>
+
+            <div class="project-card">
+                <span class="ribbon">2023 · UVM</span>
+                <h3>AMBA-3 APB Protocol Verification</h3>
+                <div class="project-duration">Internal Project · Sept 2023 – Oct 2023 · 1 month</div>
+                <ul>
+                    <li>Studied the APB protocol specification in detail.</li>
+                    <li>Prepared Verification, Test, Coverage and Assertion plans.</li>
+                    <li>Verified single-master / single-slave APB in both SV and UVM environments.</li>
+                    <li>Implemented functional coverage model and assertions.</li>
+                </ul>
+                <div class="project-tags"><span>UVM</span><span>SystemVerilog</span><span>APB3</span><span>Assertions</span></div>
+            </div>
+
+            <div class="project-card">
+                <span class="ribbon">2023 · Foundations</span>
+                <h3>16-bit ALU &amp; 8-bit Up/Down Counter</h3>
+                <div class="project-duration">Internal Projects · July 2023 – Sept 2023</div>
+                <ul>
+                    <li>Designed a 16-bit ALU and a customized 8-bit up/down counter in Verilog.</li>
+                    <li>Verified both designs in a SystemVerilog environment with directed + random tests.</li>
+                    <li>Prepared design, verification and coverage plans.</li>
+                    <li>Implemented coverage and assertions to check DUT functionality.</li>
+                </ul>
+                <div class="project-tags"><span>Verilog</span><span>SystemVerilog</span><span>Coverage</span><span>Assertions</span></div>
+            </div>
+
+        </div>
+
+        <p class="academic-heading">Academic Mini Projects</p>
+        <div class="academic-row">
+            <div class="academic-card">
+                <h4>BLDC Motor Control Analysis</h4>
+                <div class="meta">Academic Project · MATLAB</div>
+                <p>Analyzed speed-control performance of a BLDC motor using different control techniques in MATLAB.</p>
+            </div>
+            <div class="academic-card">
+                <h4>IR-Remote Home Automation</h4>
+                <div class="meta">Academic Project · Microcontroller</div>
+                <p>Designed a low-cost home-appliance switching circuit using a microcontroller and relays driven by an IR remote.</p>
             </div>
         </div>
     </section>
 
     <section id="education">
+        <p class="section-eyebrow">Background</p>
         <h2 class="section-title">Education</h2>
         <div class="education-section">
+
             <div class="education-card">
                 <h3>Master of Technology (M.Tech)</h3>
-                <div class="institution">Birla Institute of Science and Technology, Pilani - Online</div>
-                <div class="details">
-                    Work Integrated Learning Program | Jan 2025 - Dec 2026<br>
-                    Specialization: VLSI Design & Microelectronics (Ongoing)
-                </div>
+                <div class="institution">Birla Institute of Technology &amp; Science, Pilani — WILP (Online)</div>
+                <div class="details">Jan 2025 – Dec 2026 · Ongoing<br>Specialization: VLSI Design &amp; Microelectronics</div>
             </div>
 
             <div class="education-card">
                 <h3>Bachelor of Technology (B.Tech)</h3>
-                <div class="institution">R V R & J C College of Engineering, Guntur, AP</div>
-                <div class="details">
-                    Full Time | Aug 2019 - April 2023<br>
-                    Electrical and Electronics Engineering | CGPA: 9.13
-                </div>
+                <div class="institution">R V R &amp; J C College of Engineering, Guntur, AP</div>
+                <div class="details">Aug 2019 – Apr 2023 · Full Time<br>Electrical &amp; Electronics Engineering</div>
+                <span class="cgpa">CGPA · 9.13 / 10</span>
             </div>
+
         </div>
     </section>
 
     <section id="contact">
         <div class="contact">
+            <p class="section-eyebrow">Let's Connect</p>
             <h2 class="section-title">Get In Touch</h2>
-            <p style="color: #b8b8d1; margin-bottom: 2rem;">Feel free to reach out for collaborations, opportunities, or just to connect!</p>
+            <p class="lead">Open to RTL Design / DV / FPGA opportunities and collaborations on AI-for-EDA tooling. Happy to chat about silicon, verification automation or anything VLSI.</p>
             <div class="contact-info">
                 <div class="contact-item">
-                    <span style="color: #9999b3;"> Email</span>
+                    <span class="lbl">Email</span>
                     <a href="mailto:dtejaswarreddy10@gmail.com">dtejaswarreddy10@gmail.com</a>
                 </div>
                 <div class="contact-item">
-                    <span style="color: #9999b3;"> Phone</span>
+                    <span class="lbl">Phone</span>
                     <a href="tel:+919110727080">+91 9110727080</a>
                 </div>
                 <div class="contact-item">
-                    <span style="color: #9999b3;"> LinkedIn</span>
-                    <a href="https://linkedin.com/in/tejeswara-reddy-dudyala-74784821b" target="_blank">View Profile</a>
+                    <span class="lbl">LinkedIn</span>
+                    <a href="https://linkedin.com/in/tejeswara-reddy-dudyala-74784821b" target="_blank" rel="noopener">View Profile</a>
                 </div>
                 <div class="contact-item">
-                    <span style="color: #9999b3;"> Location</span>
-                    <span style="color: #4facfe;">Kadapa, India</span>
+                    <span class="lbl">GitHub</span>
+                    <a href="https://github.com/dtejaswarreddy10" target="_blank" rel="noopener">@dtejaswarreddy10</a>
+                </div>
+                <div class="contact-item">
+                    <span class="lbl">Location</span>
+                    <span class="val">Hyderabad, India</span>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Tejeswara Reddy Dudyala. All rights reserved.</p>
+        <p>&copy; 2026 Tejeswara Reddy Dudyala · Crafted with HTML &amp; CSS · Hosted on <a href="https://github.com/dtejaswarreddy10" target="_blank" rel="noopener">GitHub</a></p>
     </footer>
 
     <script>
+        // Smooth scroll for in-page anchors
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+        // Scroll-progress bar
+        const progressEl = document.getElementById('scrollProgress');
+        const updateProgress = () => {
+            const h = document.documentElement;
+            const scrolled = h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight);
+            progressEl.style.width = (scrolled * 100) + '%';
         };
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        window.addEventListener('resize', updateProgress);
+        updateProgress();
 
-        const observer = new IntersectionObserver((entries) => {
+        // Scroll reveal — staggered for cards
+        const revealEls = document.querySelectorAll(
+            '.experience-item, .skill-category, .project-card, .academic-card, .education-card, .contact'
+        );
+        revealEls.forEach(el => el.classList.add('reveal'));
+
+        const io = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                    const siblings = Array.from(entry.target.parentNode.children);
+                    const idx = siblings.indexOf(entry.target);
+                    setTimeout(() => entry.target.classList.add('visible'), Math.min(idx, 6) * 80);
+                    io.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
+        revealEls.forEach(el => io.observe(el));
     </script>
 </body>
 </html>
