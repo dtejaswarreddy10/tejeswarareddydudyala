@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tejeswara Reddy Dudyala - Digital RTL Design Engineer with 2 yrs 7 mo experience at AMD (via ACL Digital). Verilog / VHDL / SystemVerilog / UVM, DVB-S2/S2X, in-memory computing, RISC-V, AI-driven verification automation.">
+    <meta name="description" content="Tejeswara Reddy Dudyala - Digital RTL Design Engineer with 2 yrs 9 mo experience at AMD (via ACL Digital). Verilog / VHDL / SystemVerilog / UVM, DVB-S2/S2X, in-memory computing, RISC-V, AI-driven verification automation.">
     <meta name="author" content="Tejeswara Reddy Dudyala">
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tejeswara Reddy Dudyala — Digital RTL Design Engineer">
+    <meta property="og:description" content="RTL Design · Verification · AI-Driven Automation — 2 yrs 9 mo silicon design experience at AMD (via ACL Digital). DVB-S2/S2X, IMC, RISC-V, UVM.">
+    <meta property="og:url" content="https://dtejaswarreddy10.github.io/tejeswarareddydudyala">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Tejeswara Reddy Dudyala — Digital RTL Design Engineer">
+    <meta name="twitter:description" content="RTL Design · Verification · AI-Driven Automation. DVB-S2/S2X, IMC, RISC-V, UVM.">
+
+    <!-- Favicon (inline SVG) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050617'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='30' font-weight='700' fill='%2300f2fe' text-anchor='middle'%3ETR%3C/text%3E%3C/svg%3E">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -139,6 +152,26 @@
             animation: gradientShift 6s ease-in-out infinite;
         }
         .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            padding: 0.45rem 0.6rem;
+            cursor: pointer;
+        }
+        .nav-toggle span {
+            width: 22px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .nav-toggle.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+        .nav-toggle.open span:nth-child(2) { opacity: 0; }
+        .nav-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
         .nav-links a {
             color: var(--text);
             text-decoration: none;
@@ -217,6 +250,7 @@
             letter-spacing: -0.025em;
             margin-bottom: 0.9rem;
             font-weight: 700;
+            color: var(--accent-1);
             background: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 30%, var(--accent-pink) 60%, var(--accent-3) 100%);
             background-size: 220% 220%;
             -webkit-background-clip: text;
@@ -355,6 +389,7 @@
             margin: 0 auto;
             position: relative;
             z-index: 1;
+            scroll-margin-top: 80px;
         }
         .section-eyebrow {
             text-align: center;
@@ -862,7 +897,27 @@
         /* Responsive */
         @media (max-width: 768px) {
             .hero { padding-top: 6rem; }
-            .nav-links { gap: 0.9rem; font-size: 0.78rem; }
+            .nav-toggle { display: flex; }
+            .nav-links {
+                position: fixed;
+                top: 62px;
+                right: 0;
+                flex-direction: column;
+                gap: 1.1rem;
+                font-size: 0.95rem;
+                background: rgba(5, 6, 23, 0.97);
+                backdrop-filter: blur(16px) saturate(140%);
+                -webkit-backdrop-filter: blur(16px) saturate(140%);
+                padding: 1.4rem 1.8rem;
+                border-left: 1px solid var(--border);
+                border-bottom: 1px solid var(--border);
+                border-bottom-left-radius: 16px;
+                box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+                transform: translateX(115%);
+                transition: transform 0.35s ease;
+                z-index: 999;
+            }
+            .nav-links.open { transform: translateX(0); }
             .logo { font-size: 1.15rem; }
             .projects-grid,
             .skills-grid,
@@ -887,9 +942,12 @@
 <body>
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Primary">
         <div class="logo">TR.</div>
-        <ul class="nav-links">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
             <li><a href="#home">Home</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -904,14 +962,14 @@
             <span class="eyebrow">Digital RTL Design Engineer</span>
             <h1>Tejeswara Reddy Dudyala</h1>
             <h2>RTL Design · Verification · AI-Driven Automation</h2>
-            <p>2 yrs 7 mo of silicon design experience — currently building <span class="highlight pink">RTL &amp; AI-powered verification automation at AMD</span> (via ACL Digital). Hands-on with <span class="highlight">DVB-S2 / S2X protocol RTL</span>, <span class="highlight lime">in-memory computing</span>, <span class="highlight warm">RISC-V pipelined cores</span>, and UVM-based functional verification. M.Tech VLSI in progress at BITS Pilani.</p>
+            <p>2 yrs 9 mo of silicon design experience — currently building <span class="highlight pink">RTL &amp; AI-powered verification automation at AMD</span> (via ACL Digital). Hands-on with <span class="highlight">DVB-S2 / S2X protocol RTL</span>, <span class="highlight lime">in-memory computing</span>, <span class="highlight warm">RISC-V pipelined cores</span>, and UVM-based functional verification. M.Tech VLSI in progress at BITS Pilani.</p>
             <div class="cta-buttons">
                 <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="resume.pdf" class="btn btn-secondary" download>Download Resume</a>
+                <a href="Teja_ASIC_RTL_Design_2Y_9M_JULY26.pdf" class="btn btn-secondary" download>Download Resume</a>
                 <a href="https://github.com/dtejaswarreddy10" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
             </div>
             <div class="stats-strip">
-                <div class="stat"><span class="num">2.7+</span><span class="label">Years Experience</span></div>
+                <div class="stat"><span class="num">2.9+</span><span class="label">Years Experience</span></div>
                 <div class="stat"><span class="num">3</span><span class="label">Companies</span></div>
                 <div class="stat"><span class="num">11+</span><span class="label">RTL Projects</span></div>
                 <div class="stat"><span class="num">9.13</span><span class="label">B.Tech CGPA</span></div>
@@ -932,8 +990,9 @@
                 <div class="company">ACL Digital · Client: AMD</div>
                 <div class="duration">Hyderabad · Nov 2025 – Present</div>
                 <ul>
-                    <li>Authoring test plans and writing RTL to verify new feature additions in AMD's silicon design flow.</li>
-                    <li>Developed an AI agent that reviews test plans for completeness, coverage gaps and protocol-level edge cases.</li>
+                    <li>Developing RTL-based verification test cases in Verilog/VHDL to validate new Vivado Synthesis features and HDL language-construct enhancements.</li>
+                    <li>Debugging synthesis issues and analyzing RTL-to-netlist behavior across multiple language constructs during synthesis-engine qualification.</li>
+                    <li>Authoring verification plans and feature-validation strategies; developed an AI agent that reviews test plans for completeness, coverage gaps and protocol-level edge cases.</li>
                     <li>Owner of two regression suites — driving automation of regression-suite maintenance with AI.</li>
                     <li>Built a regression-automation framework that maps newly authored test suites to actual regression runs, auto-generates execution logs/reports and pushes email notifications for faster validation tracking.</li>
                 </ul>
@@ -995,7 +1054,7 @@
 
             <div class="skill-category">
                 <h3>Scripting &amp; Version Control</h3>
-                <p><strong>Scripting:</strong> Python, TCL (LLM-assisted)<br><strong>Version Control:</strong> GitHub, Perforce<br><strong>OS:</strong> Linux (Ubuntu 20 / 24), Windows</p>
+                <p><strong>Scripting:</strong> Python, TCL<br><strong>Version Control:</strong> GitHub, Perforce<br><strong>OS:</strong> Linux (Ubuntu 20 / 24), Windows</p>
             </div>
 
             <div class="skill-category featured">
@@ -1011,6 +1070,19 @@
         <p class="section-eyebrow">Selected Work</p>
         <h2 class="section-title">Key Projects</h2>
         <div class="projects-grid">
+
+            <div class="project-card">
+                <span class="ribbon">2026 · ASIC Flow · Currently Working</span>
+                <h3>Mixed-Precision Sparsity-Aware Systolic Array</h3>
+                <div class="project-duration">Personal Project · June 2026 – Present</div>
+                <ul>
+                    <li>Designing a parameterised <strong>output-stationary N×N INT8</strong> systolic array in Verilog RTL for efficient sparsity-aware matrix compute.</li>
+                    <li>Achieved <strong>~506 MHz Fmax on Kintex-7 (xc7k70t-1)</strong> — a <strong>2.7× boost over baseline</strong> — through out-of-context synthesis with timing &amp; placement optimization.</li>
+                    <li>Managed the full <strong>RTL-to-routed flow</strong> in Vivado (OOC synthesis, place &amp; route, timing closure).</li>
+                    <li>Built a bit-accurate Python golden model to validate hardware results through self-checking tests.</li>
+                </ul>
+                <div class="project-tags"><span>Verilog</span><span>Systolic Array</span><span>INT8</span><span>Sparsity-Aware</span><span>OOC Synthesis</span><span>Timing Closure</span><span>Kintex-7</span><span>Vivado</span></div>
+            </div>
 
             <div class="project-card">
                 <span class="ribbon">2026 · FPGA · Edge AI</span>
@@ -1069,7 +1141,7 @@
             <div class="project-card">
                 <span class="ribbon">2025 · Edge AI / SRAM</span>
                 <h3>In-Memory Computing (IMC) SRAM Engine</h3>
-                <div class="project-duration">March 2025 · 1 month</div>
+                <div class="project-duration">Personal Project · March 2026 · 1 month</div>
                 <ul>
                     <li>Designed a 256×32 dual-port SRAM-based IMC engine in Verilog to accelerate edge AI / ML inference.</li>
                     <li>Performs bitwise compute directly within memory — addressing the von-Neumann memory-wall bottleneck.</li>
@@ -1214,6 +1286,24 @@
                 }
             });
         });
+
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('open');
+                navToggle.classList.toggle('open', isOpen);
+                navToggle.setAttribute('aria-expanded', String(isOpen));
+            });
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('open');
+                    navToggle.classList.remove('open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
 
         // Scroll-progress bar
         const progressEl = document.getElementById('scrollProgress');
